@@ -1,0 +1,186 @@
+@font-face {
+    font-family: Exo2;
+    src: url(/fonts/Exo2.0-Thin.otf);
+  }
+  
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    background: url(/img/bg.png) no-repeat center center fixed;
+    background-size: cover;
+    color: #000000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    color: #ffffff;
+    font-size: 36px;
+    font-family: Exo2;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 23px;
+}
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
+}
+.product {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 5px;
+}
+.wrapper {
+    /* width: calc(100% / 3); */
+    position: relative;
+    background-color: transparent;
+    overflow: hidden;  
+    margin-bottom: 30px;
+}
+
+/* БЛОКИ ПЕРЕСТАЛИ СЖИМАТЬСЯ КОГДА Я ДОБАВИЛ DIV PRODUCT */
+.wrapper::before {
+    content: '';
+    position: absolute;
+    width: 1100%;
+    height: 1100%;
+    top: 30px;
+    right: -500%;
+    background: #2ea8e6;
+    transform-origin: 46% 0;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+.wrapper.selected::before {
+    background: rgb(241, 50, 155);
+}
+.package {
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+    height: 98%;
+}
+.package::before {
+    content: '';
+    position: absolute;
+    width: 1100%;
+    height: 1100%;
+    top: 27px;
+    right: -500%;
+    background: #f2f2f2;
+    transform-origin: 46% 0;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.slogan {
+    margin: 24px 0 15px 49px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+}
+.title {
+    margin: 0 0 4px 49px;
+    font-size: 48px;
+}
+.subtitle {
+    margin: 0 0 16px 49px;
+    font-size: 24px;
+}
+.text {
+    font-size: 14px;
+    color: #666;
+    max-width: 127px;
+    line-height: 1.14;
+    font-weight: normal;
+}
+.text__left {
+    margin: 0 0 45px 48px;
+}
+.text__centr {
+    margin: 0 0 45px 48px;
+}
+.text__right {
+    margin: 0 0 30px 48px;
+}
+.number {
+    font-weight: bold;
+}
+.img {
+    width: 100%;
+    margin-bottom: -3px;
+}
+.box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 81px;
+    max-height: 81px;
+    width: 100%;
+    height: 100%;
+    background: #2ea8e6;
+    border-radius: 50px;
+    color: #ffffff;
+    line-height: 1.05;
+    font-size: 21px;
+    font-weight: normal; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box.selected {
+    background: rgb(241, 50, 155);
+}
+.box__number {
+    font-size: 42px;
+}
+
+.description {
+    color: #ffffff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.23;
+}
+.description_blue {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1698d9;
+    /* border-bottom: 1px dashed #1698d9;   */
+    position: relative;
+    cursor: pointer;
+}
+.description_blue::after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px dashed #1698d9;
+    left: 0;
+    bottom: 0;
+    width: 85%;
+}
+.description-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.description_blue.active {
+    display: none;
+}

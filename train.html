@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train</title>
+  <link rel="stylesheet" href="train.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="btn">ВЫБРАТЬ</div>
+    <div class="buy"><p class="text">СТАРЫЙ ТЕКСТ</p> <span class="span">КУПИТЬ</span> </div>
+  </div>
+  
+  <div class="container">
+    <div class="btn">ВЫБРАТЬ</div>
+    <div class="buy"><p class="text">СТАРЫЙ ТЕКСТ</p> <span class="span">КУПИТЬ</span> </div>
+  </div>
+
+  <script>
+    let el = {
+      text: document.querySelectorAll(".text"),
+      btn: document.querySelectorAll(".btn"),
+      container: document.querySelectorAll(".container"),
+      span: document.querySelectorAll(".span"),
+    };
+
+    let textStorage = new Array(el.btn.length);
+
+    for (let i = 0; i < el.btn.length; i++) {
+      textStorage[i] = el.text[i].innerHTML;
+      // Исходные тексты элементов сохраняются в массиве под теми же индексами.
+      el.btn[i].addEventListener("click", changeBorder);
+    };
+
+    for (let i = 0; i < el.span.length; i++) {
+      el.span[i].addEventListener("click", buyElement);
+    };
+
+    function changeBorder() {
+      let i = [].indexOf.call(el.btn, this);
+      // Находит индекс кликнутой кнопки среди всех остальных кнопок.
+      // this — ссылка на кликнутую кнопку
+      let selected = el.container[i].classList.toggle("selected");
+      el.text[i].innerHTML = selected ? "НОВЫЙ НОВЫЙ ТЕКСТ" : textStorage[i];
+      let buy = el.span[i].classList.toggle("active");
+    };
+
+    function buyElement() {
+      let i = [].indexOf.call(el.span, this);
+      let selectedElement = el.container[i].classList.add("selected");
+      el.text[i].innerHTML = "НОВЫЙ НОВЫЙ ТЕКСТ";
+      let buy = el.span[i].classList.toggle("active");
+    };
+  </script>
+</body>
+
+</html>
