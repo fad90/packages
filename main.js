@@ -29,8 +29,8 @@ function buyPackage() {
 
 function buyProduct() {
   let i = [].indexOf.call(el.btn, this);
-  let selectedWr = el.wrapper[i].classList.toggle('selected');
-  let selectedB = el.box[i].classList.toggle('selected');
+  let selectedWrap = el.wrapper[i].classList.toggle('selected');
+  let selectedBox = el.box[i].classList.toggle('selected');
   
   el.text[i].innerHTML = "Головы щучьи с чесноком да свежайшая сёмгушка.";
   let buy = el.btn[i].classList.toggle('active');
